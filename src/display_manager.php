@@ -70,10 +70,10 @@ class DisplayManager {
     
     if($images)
     { 
-      echo '<p>Cette gallerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la gallerie en suivant ce lien : <a href=all.zip >all.zip</a>.</p>'."\n";
+      echo '<p>Cette galerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la galerie en suivant ce lien : <a href=all.zip >all.zip</a>.</p>'."\n";
     } else {
       echo '      <div  class="image-bloc">'."\n";
-      echo '        Cette gallerie ne contient aucune image'."\n";
+      echo '        Cette galerie ne contient aucune image'."\n";
       echo '      </div>'."\n";//div image
     }
   }
