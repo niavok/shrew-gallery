@@ -14,9 +14,10 @@ $(wildcard src/main.php)
 
 all:
 	@mkdir -p $(BUILD_DIR)
-	@rm -f $(TARGET)
+	@rm -f $(TARGET) $(BUILD_DIR)/shrew-gallery.tar.gz
 	@touch $(TARGET)
 	@echo $(PHP_PREFIX) >> $(TARGET)
 	@cat $(SOURCES) |grep -v "<?php" | grep -v "?>" | grep -v "//l" >> $(TARGET)
 	@echo $(PHP_SUFFIX) >> $(TARGET)
+	tar czf $(BUILD_DIR)/shrew-gallery.tar.gz  $(TARGET)
 	@echo "Build successful :" $(TARGET)

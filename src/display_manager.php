@@ -17,11 +17,11 @@
 //l   along with Shrew-gallery.  If not, see <http://www.gnu.org/licenses/>.
 
 class DisplayManager {
-  function DisplayImagesPage()
+  function DisplayImagesPage($images)
   {
       $this->PrintHtmlHeader();
       $this->PrintImagesPageHeader();
-      $this->PrintImagesPageBody();
+      $this->PrintImagesPageBody($images);
       $this->PrintFooter();
   }
   
@@ -31,34 +31,46 @@ class DisplayManager {
   
   function PrintHtmlHeader()
   {  
-    echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-    echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >';
-    echo '  <head>';
-    echo '    <title>Bienvenue sur mon site !</title>';
-    echo '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
-    echo '  </head>';
-    echo '  <body>';
-    echo '  <div id="page">';
+    echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n";
+    echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >'."\n";
+    echo '  <head>'."\n";
+    echo '    <title>Bienvenue sur mon site !</title>'."\n";
+    echo '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'."\n";
+    echo '  </head>'."\n";
+    echo '  <body>'."\n";
+    echo '  <div id="page">'."\n";
   }
   
   function PrintFooter()
   {
-    echo '      <div id="footer">';
-    echo '        <p id="copyright" ></p>Powered by Shrew-gallery - Copyright (C) 2009 Frédéric Bertolus</p>';
-    echo '        <p id="licence" >Shrew-gallery is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>';
-    echo '        <p id="source" ></p>The source code can be found at the following URL : <a href="shrew-gallery.tar.gz>shrew-gallery.tar.gz</a></p>';
-    echo '      </div>';//div footer
-    echo '    </div>';//div page
-    echo '  </body>';
+    echo '      <div id="footer">'."\n";
+    echo '        <p id="copyright" ></p>Powered by Shrew-gallery - Copyright (C) 2009 Frédéric Bertolus</p>'."\n";
+    echo '        <p id="licence" >Shrew-gallery is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>'."\n";
+    echo '        <p id="source" ></p>The source code can be found at the following URL : <a href="shrew-gallery.tar.gz">shrew-gallery.tar.gz</a></p>'."\n";
+    echo '      </div>'."\n";//div footer
+    echo '    </div>'."\n";//div page
+    echo '  </body>'."\n";
     echo '</html>';
   }
   
   function PrintImagesPageHeader()
   {
+    
   }
   
-  function PrintImagesPageBody()
+  function PrintImagesPageBody($images)
   {
+    if($images)
+    {
+      foreach($images as $image)
+      {
+        echo '      <div class="image">'."\n";
+        echo '        '.$image->GetPath()."\n";
+        echo '      </div>'."\n";//div image
+      }
+    } else {
+        echo '      Aucune image trouvé'."\n";
+    }
   }
      
 
