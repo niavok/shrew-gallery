@@ -27,10 +27,16 @@ class Shrew {
 	  
     //Create Login Manager
     $loginManager = new LoginManager();
-    
+    $loginManager->Load();
+    $loginFail = false;
     if($loginManager->WantLogin())
     {
-      $loginManager->TryLogin();
+       $loginFail = !$loginManager->TryLogin();
+    }
+    
+    if($loginManager->WantLogout())
+    {
+       $loginManager->Logout();
     }
     
     if($_GET['want']== source)
@@ -47,7 +53,7 @@ class Shrew {
     }
     else
     {
-      $displayManager->DisplayLoginPage();
+      $displayManager->DisplayLoginPage($loginFail);
     }
     
   }

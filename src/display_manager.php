@@ -25,8 +25,11 @@ class DisplayManager {
       $this->PrintFooter();
   }
   
-  function DisplayLoginPage()
+  function DisplayLoginPage($loginFail)
   {
+    $this->PrintHtmlHeader();
+    $this->PrintLoginForm($loginFail);
+    $this->PrintFooter();
   }
   
   function PrintHtmlHeader()
@@ -62,7 +65,7 @@ class DisplayManager {
   {
     if($images)
     { 
-      echo 'Cette gallerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la gallerie en suivant ce lien : <a href=all.zip >all.zip</a>'."\n";
+      echo 'Cette gallerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la gallerie en suivant ce lien : <a href=all.zip >all.zip</a>. Suivez ce lien pour vous déconnecter :  <a href=index.php?want=logout >déconnection</a>'."\n";
     }
   }
   
@@ -153,6 +156,21 @@ class DisplayManager {
     fclose($source);
   }
 
+  function PrintLoginForm($loginFail)
+  {
+    echo '      <div  class="image-bloc">'."\n";
+    echo '        <form action="index.php?want=login" method="post" >'."\n";
+    echo '          <ul>'."\n";
+    if($loginFail){
+     echo '            <li class=error >Identifiant ou mot de passe incorrect. Accès refusé.</li>'."\n";
+    }
+    echo '            <li>Identifiant : <input name=login type=text /></li>'."\n";
+    echo '            <li>Mot de passe : <input name=password type=password /></li>'."\n";
+    echo '            <li><input type=submit value="Valider" /></li>'."\n";
+    echo '          </ul>'."\n";
+    echo '        </form>'."\n";
+    echo '      </div>'."\n";//div image
+  }
   
 }
 

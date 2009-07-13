@@ -41,6 +41,13 @@ class Style {
       color : rgb(220,220,220);
     }
     
+    input
+    {
+      background-color : rgb(40,40,40);
+      border : 1px solid rgb(30,30,30);
+      color : rgb(230,230,230);
+    }
+    
     #page
     {
       margin : 15px;
@@ -86,6 +93,11 @@ class Style {
       text-align : center;
       font-size : 1.0em;
       
+    }
+    
+    .error
+    {
+      color : red;
     }
     ';
   }
