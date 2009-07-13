@@ -94,6 +94,9 @@ class DisplayManager {
       if($end <0) { $end = 0;}
       if($end >count($images)) { $end = count($images);}
       
+      
+      echo '<p><form action="index.php" method="get">Images par page : <input name=start type=hidden value="'.$start.'"/><input type=text name=count size=2 value="'.$count.'"/> <input type=submit value=OK /></form></p>'."\n";
+      
       for($index = $start; $index < $end; $index++)
       {
         $image = $images[$index];

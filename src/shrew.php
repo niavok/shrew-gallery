@@ -32,6 +32,10 @@ class Shrew {
     if($loginManager->WantLogin())
     {
        $loginFail = !$loginManager->TryLogin();
+       if(!$loginFail)
+       {
+         header('location: index.php');
+       }
     }
     
     if($loginManager->WantLogout())
