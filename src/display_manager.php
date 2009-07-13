@@ -75,7 +75,7 @@ class DisplayManager {
     if($images)
     {
       $start = 0;
-      $count = 5;
+      $count = 8;
       if($_GET['start'])
       {
         $start = $_GET['start'];
