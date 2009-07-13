@@ -31,7 +31,7 @@ class Style {
     
     a
     {
-      text-decoration : none;
+      text-decoration : underline;
       font-style: oblique;
       color : rgb(180,180,180);
     }
@@ -50,10 +50,20 @@ class Style {
     
     #page
     {
+      background-image : url("index.php?want=logo");
+      background-repeat:no-repeat;
+      background-position : 80% 10px;
       margin : 15px;
       background-color : rgb(10,10,10);
       border : 1px solid rgb(20,20,20);
       padding : 10px;
+    }
+    
+    #logo
+    {
+      float:left;
+      margin-right : 15px;
+      margin-bottom : 10px;
     }
     
     .image-bloc
@@ -66,6 +76,7 @@ class Style {
     .image-infos-bloc
     {
       float:left;
+      
     }
     
     .image-infos
@@ -77,6 +88,11 @@ class Style {
       padding-right : 10px;
       background-color : rgb(10,10,10);
       border : 1px solid rgb(20,20,20);
+    }
+    
+    .image-infos a
+    {
+      text-decoration : none;
     }
     
     #footer

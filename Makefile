@@ -5,6 +5,7 @@ PHP_SUFFIX="?>"
 
 SOURCES=\
 $(wildcard src/licence.php) \
+$(wildcard src/logo.php) \
 $(wildcard src/style.php) \
 $(wildcard src/config.php) \
 $(wildcard src/login_manager.php) \

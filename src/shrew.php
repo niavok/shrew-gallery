@@ -42,8 +42,14 @@ class Shrew {
     {
        $loginManager->Logout();
     }
-   
-    if(isset($_GET['want']) and $_GET['want']== 'source')
+    
+    if(isset($_GET['want']) and $_GET['want']== 'logo')
+    {
+      $logo = new Logo();
+      $logo->Generate();
+      return;
+    }
+    elseif(isset($_GET['want']) and $_GET['want']== 'source')
     {
       $displayManager->DisplaySource();
     }

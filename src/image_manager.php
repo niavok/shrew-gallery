@@ -38,7 +38,33 @@ class ImageManager {
   
   function IsImage($f)
   {
-    return preg_match('#.jpg$#',$f);
+    $is_image = false;
+    if(preg_match('#.jpg$#',$f))
+    {
+      $is_image = true;
+    }
+    if(preg_match('#.JPG$#',$f))
+    {
+      $is_image = true;
+    }
+    if(preg_match('#.bmp$#',$f))
+    {
+      $is_image = true;
+    }
+    if(preg_match('#.BMP$#',$f))
+    {
+      $is_image = true;
+    }
+    if(preg_match('#.png$#',$f))
+    {
+      $is_image = true;
+    }
+    if(preg_match('#.PNG$#',$f))
+    {
+      $is_image = true;
+    }
+    return $is_image;
+
   }
 }
 

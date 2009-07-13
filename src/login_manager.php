@@ -43,7 +43,7 @@ class LoginManager {
   {
     if($this->access_locked)
     {
-      if($_SESSION['logged'] == 'yes')
+      if(isset($_SESSION['logged']) and $_SESSION['logged'] == 'yes')
       {
         return true;
       } else {

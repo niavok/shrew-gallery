@@ -56,7 +56,7 @@ class DisplayManager {
   function PrintFooter()
   {
     echo '      <div id="footer">'."\n";
-    echo '        <p id="copyright" ></p>Powered by Shrew-gallery v1.0.0 - Copyright (C) 2009 Frédéric Bertolus</p>'."\n";
+    echo '        <p id="copyright" ></p>Powered by <a href="http://shrew-gallery.b219.org" >Shrew-gallery v1.0.0</a> - Copyright (C) 2009 Frédéric Bertolus</p>'."\n";
     echo '        <p id="licence" >Shrew-gallery is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>'."\n";
     echo '        <p id="source" ></p>The source code can be found at the following URL : <a href="index.php?want=source">index.php</a></p>'."\n";
     echo '      </div>'."\n";//div footer
