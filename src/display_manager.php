@@ -20,7 +20,7 @@ class DisplayManager {
   function DisplayImagesPage($images)
   {
       $this->PrintHtmlHeader();
-      $this->PrintImagesPageHeader();
+      $this->PrintImagesPageHeader($images);
       $this->PrintImagesPageBody($images);
       $this->PrintFooter();
   }
@@ -43,6 +43,7 @@ class DisplayManager {
     echo '  </head>'."\n";
     echo '  <body>'."\n";
     echo '  <div id="page">'."\n";
+    echo '  <h1>Shrew gallery</h1>'."\n";
   }
   
   function PrintFooter()
@@ -57,9 +58,12 @@ class DisplayManager {
     echo '</html>';
   }
   
-  function PrintImagesPageHeader()
+  function PrintImagesPageHeader($images)
   {
-    
+    if($images)
+    { 
+      echo 'Cette gallerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la gallerie en suivant ce lien : <a href=all.zip >all.zip</a>'."\n";
+    }
   }
   
   function PrintImagesPageBody($images)
