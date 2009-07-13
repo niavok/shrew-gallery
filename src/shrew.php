@@ -33,8 +33,11 @@ class Shrew {
       $loginManager->TryLogin();
     }
     
-    
-    if($loginManager->IsLogged())
+    if($_GET['want']== source)
+    {
+      $displayManager->DisplaySource();
+    }
+    else if($loginManager->IsLogged())
     {
       $imageManager = new ImageManager();
       $images = $imageManager->GetImages();

@@ -19,7 +19,26 @@
 class ImageManager {
   function GetImages()
   {
-    
+    $dir = opendir('.');
+    $images = array();
+
+    while ($f = readdir($dir)) {
+       if(is_file($f)) {
+         if($this->IsImage($f))
+         {
+           $image = new Image();
+           $image->SetPath($f);
+           $images[] = $image;
+         }
+       }
+    } 
+    closedir($dir);
+    return $images;
+  }
+  
+  function IsImage($f)
+  {
+    return preg_match('#.jpg$#',$f);
   }
 }
 
