@@ -88,6 +88,11 @@ class Style {
       text-align : center;
     }
     
+    #logout
+    {
+      float : right;
+    }
+    
     .image-infos h1
     {
       text-align : center;

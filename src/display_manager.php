@@ -19,7 +19,7 @@
 class DisplayManager {
   function DisplayImagesPage($images)
   {
-      $this->PrintHtmlHeader();
+      $this->PrintHtmlHeader(true);
       $this->PrintImagesPageHeader($images);
       $this->PrintImagesPageBody($images);
       $this->PrintFooter();
@@ -27,12 +27,12 @@ class DisplayManager {
   
   function DisplayLoginPage($loginFail)
   {
-    $this->PrintHtmlHeader();
+    $this->PrintHtmlHeader(false);
     $this->PrintLoginForm($loginFail);
     $this->PrintFooter();
   }
   
-  function PrintHtmlHeader()
+  function PrintHtmlHeader($logout)
   {  
     $style = new Style();
     echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n";
@@ -46,7 +46,11 @@ class DisplayManager {
     echo '  </head>'."\n";
     echo '  <body>'."\n";
     echo '  <div id="page">'."\n";
-    echo '  <h1>Shrew gallery</h1>'."\n";
+    if($logout)
+    {
+      echo '    <div id=logout><a href=index.php?want=logout >Déconnection</a></div>'."\n";
+    }
+    echo '    <h1>Shrew gallery</h1>'."\n";
   }
   
   function PrintFooter()
@@ -63,9 +67,10 @@ class DisplayManager {
   
   function PrintImagesPageHeader($images)
   {
+    
     if($images)
     { 
-      echo 'Cette gallerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la gallerie en suivant ce lien : <a href=all.zip >all.zip</a>. Suivez ce lien pour vous déconnecter :  <a href=index.php?want=logout >déconnection</a>'."\n";
+      echo '<p>Cette gallerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la gallerie en suivant ce lien : <a href=all.zip >all.zip</a>.</p>'."\n";
     }
   }
   
