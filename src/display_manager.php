@@ -71,6 +71,10 @@ class DisplayManager {
     if($images)
     { 
       echo '<p>Cette gallerie contient '.count($images).' images. Vous pouvez télécharger l\'intégralité de la gallerie en suivant ce lien : <a href=all.zip >all.zip</a>.</p>'."\n";
+    } else {
+      echo '      <div  class="image-bloc">'."\n";
+      echo '        Cette gallerie ne contient aucune image'."\n";
+      echo '      </div>'."\n";//div image
     }
   }
   
@@ -81,7 +85,7 @@ class DisplayManager {
     {
       $start = 0;
       $count = 8;
-      if($_GET['start'])
+      if(isset($_GET['start']))
       {
         $start = $_GET['start'];
       }
@@ -90,7 +94,7 @@ class DisplayManager {
       if($start >=count($images)) { $start = count($images)-1;}
       
       
-      if($_GET['count'])
+      if(isset($_GET['count']))
       {
         $count = $_GET['count'];
       }
@@ -144,11 +148,8 @@ class DisplayManager {
         echo '        </div>'."\n";
         echo '      </div>'."\n";//div image
       }
-    } else {
-      echo '      <div  class="image-bloc">'."\n";
-      echo '      Aucune image trouvé'."\n";
-      echo '      </div>'."\n";//div image
     }
+   
   }
      
   function DisplaySource()

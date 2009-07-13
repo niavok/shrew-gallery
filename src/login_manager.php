@@ -22,11 +22,20 @@ class LoginManager {
   private $access_locked = false;
   function WantLogin()
   {
+    if(!isset($_GET['want']))
+    {
+      return false;
+    }
     return ($_GET['want'] == 'login');
   }
   
   function WantLogout()
   {
+    if(!isset($_GET['want']))
+    {
+      return false;
+    }
+    
     return ($_GET['want'] == 'logout');
   }
   
